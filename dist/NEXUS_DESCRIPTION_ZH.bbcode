@@ -1,0 +1,136 @@
+[size=6][b]种族被动 Race Passives[/b][/size]
+[size=4]给每个种族加几个新被动，强度多高你自己拉滑条决定。[/size]
+
+[line]
+
+[b]做了什么[/b]
+一直想要能自己调强弱的种族被动，干脆动手做了。每个可玩种族新增 2-3 个被动，游戏内菜单里每个种族一个滑条。觉得太强就调低，想让诺德更抗冻就拉满。按种族、按角色单独设。
+
+[line]
+
+[b]前置[/b]
+[list]
+[*][url=https://skse.silverlock.org/]SKSE64[/url]
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/32444]Address Library for SKSE Plugins[/url]
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/120352]SKSE Menu Framework[/url] —— 可选，只给菜单用。不装也有被动，就是没菜单。
+[/list]
+在 SE 1.5.97 上做的和测的。没有 VR 版。
+
+[line]
+
+[b]各种族被动[/b] [size=2]（下面数字是 100% 时的值）[/size]
+
+[b]诺德[/b]
+[list]
+[*]寒霜抗性 +25% [size=2]（加算）[/size]
+[*]龙吼冷却 -20% [size=2]（乘算）[/size]
+[*]半血以下生命再生 +50% [size=2]（加算）[/size]
+[/list]
+
+[b]兽人[/b]
+[list]
+[*]生命上限 +50 [size=2]（加算）[/size]
+[*]半血以下攻击 +20% [size=2]（乘算）[/size]
+[/list]
+
+[b]布莱顿[/b]
+[list]
+[*]魔法抗性 +25% [size=2]（加算）[/size]
+[*]法术吸收 10% [size=2]（加算）[/size]
+[*]半血以下法力再生 +100% [size=2]（加算）[/size]
+[/list]
+
+[b]暗精灵[/b]
+[list]
+[*]火焰抗性 +25% [size=2]（加算）[/size]
+[*]半血以下攻击 +20% [size=2]（乘算）[/size]
+[/list]
+
+[b]高精灵[/b]
+[list]
+[*]法力上限 +50 [size=2]（加算）[/size]
+[*]法力再生 +50% [size=2]（加算）[/size]
+[/list]
+
+[b]虎人[/b]
+[list]
+[*]徒手伤害 +12 [size=2]（加算）[/size]
+[*]移动速度 +10% [size=2]（加算）[/size]
+[*]体力再生 +25% [size=2]（加算）[/size]
+[/list]
+
+[b]亚龙人[/b]
+[list]
+[*]疾病抗性 +25% [size=2]（加算）[/size]
+[*]毒素抗性 +25% [size=2]（加算）[/size]
+[*]水中时恢复生命 [size=2]（加算）[/size]
+[/list]
+
+[b]红卫[/b]
+[list]
+[*]体力上限 +50 [size=2]（加算）[/size]
+[*]体力再生 +50% [size=2]（加算）[/size]
+[*]毒素抗性 +25% [size=2]（加算）[/size]
+[/list]
+
+[b]木精灵[/b]
+[list]
+[*]弓箭绘制速度 +50% [size=2]（加算）[/size]
+[*]疾病抗性 +25% [size=2]（加算）[/size]
+[*]毒素抗性 +25% [size=2]（加算）[/size]
+[/list]
+
+[b]帝国人[/b]
+[list]
+[*]买卖价格优惠 [size=2]（乘算）[/size]
+[*]技能学习 +10% [size=2]（乘算）[/size]
+[*]战斗中护甲 +50 [size=2]（加算）[/size]
+[/list]
+
+[line]
+
+[b]菜单[/b]
+按 F1，找 [b]种族被动[/b]。每个种族一个滑条，范围 0-200%。拖动时滑条下面会实时显示当前实际数值，不用猜。
+
+几点说明：
+[list]
+[*]100% 是默认值，就是上面那张表
+[*]加算型效果线性放大，最高到 200%
+[*]乘算型效果（龙吼冷却、攻击、物价、学习）最高 100%，再往上会反过来，所以锁住了
+[*]0% 就是彻底关掉这个种族
+[/list]
+
+[line]
+
+[b]设置会保留[/b]
+设置存在 [i]SKSE/Plugins/RacePassives.ini[/i]，每次加载都会重新应用，新档旧档共用同一套。也可以手动改文件，点"从 ini 重载配置"立刻生效，不用重启。
+
+[line]
+
+[b]不跟别的 mod 冲突[/b]
+只新增记录。原版的东西一个都不覆盖，别的 mod 的改动也不碰。跟 Imperious、Morningstar 这类种族大修放一起没问题，各改各的。没有任何覆盖，所以 load order 也不用特意排。
+
+[line]
+
+[b]安装[/b]
+正常装就行。安装器会问你要英文还是中文文本。
+
+[line]
+
+[b]中途卸载[/b]
+这 mod 会给角色加能力，所以先做这一步：
+[list=1]
+[*]游戏内按 F1 → [b]总览[/b] → [b]全部关闭（卸载前清理）[/b]
+[*]存档
+[*]再删 mod
+[/list]
+跳过的话一般也还能读档，但存档里会留下指向已不存在记录的引用，可以用 [url=https://www.nexusmods.com/skyrimspecialedition/mods/5031]ReSaver[/url] 清掉。
+
+[line]
+
+[b]致谢[/b]
+[list]
+[*]基于 [url=https://github.com/alandtse/CommonLibSSE-NG]CommonLibSSE-NG[/url]
+[*]菜单由 [url=https://www.nexusmods.com/skyrimspecialedition/mods/120352]SKSE Menu Framework[/url] 提供
+[*]欢迎翻译，记得把本页列为前置
+[/list]

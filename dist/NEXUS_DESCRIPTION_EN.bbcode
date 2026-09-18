@@ -1,0 +1,136 @@
+[size=6][b]Race Passives[/b][/size]
+[size=4]New passives for every race, with a slider so you decide how strong they are.[/size]
+
+[line]
+
+[b]What this is[/b]
+I wanted racial passives I could actually tune, so I made some. Every playable race gets 2-3 new ones, and there's a slider for each race in an in-game menu. If a passive feels too strong, turn it down. If you want a Nord who shrugs off winter, turn it up. Per race, per character.
+
+[line]
+
+[b]You'll need[/b]
+[list]
+[*][url=https://skse.silverlock.org/]SKSE64[/url]
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/32444]Address Library for SKSE Plugins[/url]
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/120352]SKSE Menu Framework[/url] - optional, only for the menu. The passives work without it.
+[/list]
+Built and tested on SE 1.5.97. No VR build.
+
+[line]
+
+[b]The passives[/b] [size=2](the numbers below are what you get at 100%)[/size]
+
+[b]Nord[/b]
+[list]
+[*]Frost Resistance +25% [size=2](additive)[/size]
+[*]Shout Cooldown -20% [size=2](multiplicative)[/size]
+[*]Health Regeneration +50% below half health [size=2](additive)[/size]
+[/list]
+
+[b]Orc[/b]
+[list]
+[*]Maximum Health +50 [size=2](additive)[/size]
+[*]Attack Damage +20% below half health [size=2](multiplicative)[/size]
+[/list]
+
+[b]Breton[/b]
+[list]
+[*]Magic Resistance +25% [size=2](additive)[/size]
+[*]Spell Absorption 10% [size=2](additive)[/size]
+[*]Magicka Regeneration +100% below half health [size=2](additive)[/size]
+[/list]
+
+[b]Dunmer[/b]
+[list]
+[*]Fire Resistance +25% [size=2](additive)[/size]
+[*]Attack Damage +20% below half health [size=2](multiplicative)[/size]
+[/list]
+
+[b]Altmer[/b]
+[list]
+[*]Maximum Magicka +50 [size=2](additive)[/size]
+[*]Magicka Regeneration +50% [size=2](additive)[/size]
+[/list]
+
+[b]Khajiit[/b]
+[list]
+[*]Unarmed Damage +12 [size=2](additive)[/size]
+[*]Movement Speed +10% [size=2](additive)[/size]
+[*]Stamina Regeneration +25% [size=2](additive)[/size]
+[/list]
+
+[b]Argonian[/b]
+[list]
+[*]Disease Resistance +25% [size=2](additive)[/size]
+[*]Poison Resistance +25% [size=2](additive)[/size]
+[*]Health Regeneration while swimming [size=2](additive)[/size]
+[/list]
+
+[b]Redguard[/b]
+[list]
+[*]Maximum Stamina +50 [size=2](additive)[/size]
+[*]Stamina Regeneration +50% [size=2](additive)[/size]
+[*]Poison Resistance +25% [size=2](additive)[/size]
+[/list]
+
+[b]Bosmer[/b]
+[list]
+[*]Bow Draw Speed +50% [size=2](additive)[/size]
+[*]Disease Resistance +25% [size=2](additive)[/size]
+[*]Poison Resistance +25% [size=2](additive)[/size]
+[/list]
+
+[b]Imperial[/b]
+[list]
+[*]Better Buy / Sell Prices [size=2](multiplicative)[/size]
+[*]Skill Learning +10% [size=2](multiplicative)[/size]
+[*]Armor +50 in combat [size=2](additive)[/size]
+[/list]
+
+[line]
+
+[b]The menu[/b]
+Hit F1 and look for [b]Race Passives[/b]. One slider per race, 0-200%. The real numbers show up under each slider as you drag, so you can see what you're actually getting.
+
+A few things worth knowing:
+[list]
+[*]100% is the default - that's the table above
+[*]Additive effects scale straight up to 200%
+[*]Multiplicative effects (shout cooldown, attack damage, prices, learning) stop at 100%. Past that they flip the other way, so I capped them there.
+[*]0% switches that race off entirely
+[/list]
+
+[line]
+
+[b]Settings carry over[/b]
+Your settings go into [i]SKSE/Plugins/RacePassives.ini[/i] and get re-applied every time you load, so new characters and old saves share the same set. You can edit the file by hand too - hit "Reload config from ini" and it takes effect without restarting.
+
+[line]
+
+[b]Won't clash with your other mods[/b]
+It only adds new records. Nothing vanilla gets overwritten, and nothing from another mod gets touched. Race overhauls like Imperious or Morningstar work fine next to it - their edits and these passives just coexist. Load order doesn't matter for conflicts either, since there's nothing to override.
+
+[line]
+
+[b]Installing[/b]
+Install it like normal. The installer asks whether you want English or Chinese text.
+
+[line]
+
+[b]Uninstalling mid-save[/b]
+The mod puts abilities on your character, so do this first:
+[list=1]
+[*]In game, F1 > [b]Overview[/b] > [b]Disable all (before uninstalling)[/b]
+[*]Save
+[*]Then remove the mod
+[/list]
+Skip that and the save usually still loads, but it'll keep references to records that no longer exist. [url=https://www.nexusmods.com/skyrimspecialedition/mods/5031]ReSaver[/url] can clean those out.
+
+[line]
+
+[b]Credits[/b]
+[list]
+[*]Built with [url=https://github.com/alandtse/CommonLibSSE-NG]CommonLibSSE-NG[/url]
+[*]Menu courtesy of [url=https://www.nexusmods.com/skyrimspecialedition/mods/120352]SKSE Menu Framework[/url]
+[*]Translations are welcome - just keep this page as a requirement.
+[/list]

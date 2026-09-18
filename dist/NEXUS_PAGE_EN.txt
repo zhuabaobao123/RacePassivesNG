@@ -1,0 +1,109 @@
+Description
+
+Every playable race gets 2-3 new passive abilities, and you decide how strong they are. Pick a race in the in-game menu and drag its slider anywhere from 0 to 200%. Too strong? Turn it down. Want a Nord who shrugs off winter? Turn it up.
+
+The point is control. Instead of a race overhaul you either take or leave, this lets you tune each race to taste, per character.
+
+
+Requirements
+
+- SKSE64 (required)
+- Address Library for SKSE Plugins (required)
+- SKSE Menu Framework (optional - only for the in-game menu; the passives work without it)
+
+Built and tested on Skyrim SE 1.5.97. No VR build.
+
+
+Main features
+
+Per-race intensity slider (F1 > Race Passives)
+- One slider per race, 0 to 200%
+- Live values listed under each slider, so you see what you are actually getting
+- Overview page showing every race at a glance, plus a "Reload config from ini" button
+- 0% switches a race off completely. Multiplicative effects cap at 100%.
+
+The passives (numbers below are what you get at 100%)
+
+Nord
+- Frost Resistance +25% (additive)
+- Shout Cooldown -20% (multiplicative)
+- Health Regeneration +50% below half health (additive)
+
+Orc
+- Maximum Health +50 (additive)
+- Attack Damage +20% below half health (multiplicative)
+
+Breton
+- Magic Resistance +25% (additive)
+- Spell Absorption 10% (additive)
+- Magicka Regeneration +100% below half health (additive)
+
+Dunmer
+- Fire Resistance +25% (additive)
+- Attack Damage +20% below half health (multiplicative)
+
+Altmer
+- Maximum Magicka +50 (additive)
+- Magicka Regeneration +50% (additive)
+
+Khajiit
+- Unarmed Damage +12 (additive)
+- Movement Speed +10% (additive)
+- Stamina Regeneration +25% (additive)
+
+Argonian
+- Disease Resistance +25% (additive)
+- Poison Resistance +25% (additive)
+- Health Regeneration while swimming (additive)
+
+Redguard
+- Maximum Stamina +50 (additive)
+- Stamina Regeneration +50% (additive)
+- Poison Resistance +25% (additive)
+
+Bosmer
+- Bow Draw Speed +50% (additive)
+- Disease Resistance +25% (additive)
+- Poison Resistance +25% (additive)
+
+Imperial
+- Better Buy / Sell Prices (multiplicative)
+- Skill Learning +10% (multiplicative)
+- Armor +50 in combat (additive)
+
+Settings carry over
+- Stored in SKSE/Plugins/RacePassives.ini and re-applied on every load
+- New characters and existing saves share the same set. Edit the file by hand and hit "Reload config from ini" to apply it without restarting
+
+Won't clash with your other mods
+- Only adds new records; nothing vanilla and nothing from another mod is overwritten
+- Stacks with race overhauls (Imperious, Morningstar, Even Better Race, and similar)
+- Load order does not matter for conflicts, since there is nothing to override
+
+
+Custom races
+- Using custom race mods? You can map a custom race onto one of the sets above.
+- Open the menu (F1) > Custom Races to see your current race's EditorID.
+- Add a line under [CustomRaces] in SKSE/Plugins/RacePassives.ini, e.g. MyCustomNord=Nord
+- Hit "Reload config from ini" on the Overview page. That race now uses the Nord set and its slider.
+
+
+Installation instructions
+
+1. Install with your mod manager. The installer asks whether you want English or Chinese text.
+2. Enable the plugin.
+
+Uninstalling mid-save
+The mod puts abilities on your character, so clean up first:
+1. In game, press F1 > Overview > "Disable all (before uninstalling)"
+2. Save the game
+3. Then remove the mod
+
+If you skip that, the save usually still loads, but it keeps references to records that no longer exist. ReSaver can clean those out.
+
+
+Shout outs
+
+- Built with CommonLibSSE-NG
+- Menu courtesy of SKSE Menu Framework
+- Translations are welcome - just keep this page listed as a requirement

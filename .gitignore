@@ -1,0 +1,24 @@
+# ---- build output ----
+/build/
+/dist/pkg/
+/dist/*.zip
+
+# ---- local backups of generated/mod files ----
+/backup/
+
+# ---- obsolete Papyrus sources from the pre-DLL design (unused) ----
+/scripts/
+
+# ---- binaries and symbols (build output, not source) ----
+*.dll
+*.pdb
+*.lib
+*.exp
+*.obj
+
+# ---- misc ----
+__pycache__/
+*.pyc
+*.bak
+*.crashbak
+*.full.bak

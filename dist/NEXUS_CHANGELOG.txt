@@ -1,0 +1,30 @@
+=== CHANGELOG (English) ===
+
+v3
+--
+Custom race support.
+
+- You can now map any custom race onto one of the ten passive sets. Add a line under [CustomRaces] in SKSE/Plugins/RacePassives.ini, like MyCustomNord=Nord, then hit "Reload config from ini" on the Overview page. That race then gets the Nord passives and shares the Nord slider.
+- New "Custom Races" page in the menu (F1). It shows your current race's EditorID so you can copy it, and lists the mappings currently loaded.
+- Set names are case-insensitive (nord / Nord / NORD all work). A mapping that points at a race that isn't installed is skipped with a warning in the log, instead of breaking the rest.
+- The [CustomRaces] section is kept when the config file is rewritten, so your mappings survive slider changes.
+
+Under the hood:
+- Race matching now checks the mapped custom races in addition to the ten vanilla race forms.
+- EditorIDs are resolved to race records on load and on every reload of the ini.
+
+
+=== 更新日志（中文） ===
+
+v3
+--
+新增自定义种族支持。
+
+- 现在可以把任意自定义种族映射到十套被动之一。在 SKSE/Plugins/RacePassives.ini 的 [CustomRaces] 段下加一行，比如 MyCustomNord=Nord，然后到总览页点"从 ini 重载配置"。该种族即套用诺德被动，并共用诺德的滑条。
+- 菜单（F1）新增"自定义种族"页：显示当前种族的 EditorID（方便复制），并列出已加载的映射。
+- 套名大小写不敏感（nord / Nord / NORD 都行）；映射指向未安装的种族时会跳过并在日志里警告，不影响其余功能。
+- 重写配置文件时会保留 [CustomRaces] 段，映射不会因为拖动滑条而丢失。
+
+底层：
+- 种族匹配在十个原版种族之外，还会检查映射的自定义种族。
+- 加载时以及每次重载 ini 时，都会把 EditorID 解析成种族记录。

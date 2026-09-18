@@ -1,0 +1,12 @@
+# Normalise line endings in the repository
+* text=auto
+
+# Binary assets
+*.png binary
+*.esp binary
+*.esm binary
+*.esl binary
+*.dll binary
+*.pdb binary
+*.lib binary
+*.exp binary
