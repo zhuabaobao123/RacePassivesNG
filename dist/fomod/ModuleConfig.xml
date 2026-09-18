@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig.xsd">
+	<moduleName>Race Passives</moduleName>
+	<requiredInstallFiles>
+		<file source="main/SKSE/Plugins/RacePassives.dll" destination="SKSE/Plugins/RacePassives.dll" />
+		<file source="main/SKSE/Plugins/RacePassives.ini" destination="SKSE/Plugins/RacePassives.ini" />
+		<file source="main/SKSE/Plugins/RacePassives.pdb" destination="SKSE/Plugins/RacePassives.pdb" />
+	</requiredInstallFiles>
+	<installSteps>
+		<installStep name="Language / 语言">
+			<optionalFileGroups>
+				<group name="Language / 语言" type="SelectExactlyOne">
+					<plugins>
+						<plugin name="English">
+							<description>English in-game text (default).</description>
+							<files>
+								<file source="en/RacePassives.esp" destination="RacePassives.esp" />
+							</files>
+							<typeDescriptor>
+								<type name="Recommended" />
+							</typeDescriptor>
+						</plugin>
+						<plugin name="中文 (Chinese)">
+							<description>中文游戏内文本与菜单。种族被动名称、描述与菜单均为中文。</description>
+							<files>
+								<file source="zh/RacePassives.esp" destination="RacePassives.esp" />
+								<file source="zh/SKSE/Plugins/RacePassives.json" destination="SKSE/Plugins/RacePassives.json" />
+							</files>
+							<typeDescriptor>
+								<type name="Optional" />
+							</typeDescriptor>
+						</plugin>
+					</plugins>
+				</group>
+			</optionalFileGroups>
+		</installStep>
+	</installSteps>
+</config>

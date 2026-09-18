@@ -1,6 +1,6 @@
 === CHANGELOG (English) ===
 
-v3
+2
 --
 Custom race support.
 
@@ -16,7 +16,7 @@ Under the hood:
 
 === 更新日志（中文） ===
 
-v3
+2
 --
 新增自定义种族支持。
 
