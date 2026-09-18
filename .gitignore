@@ -6,9 +6,6 @@
 # ---- local backups of generated/mod files ----
 /backup/
 
-# ---- obsolete Papyrus sources from the pre-DLL design (unused) ----
-/scripts/
-
 # ---- binaries and symbols (build output, not source) ----
 *.dll
 *.pdb
