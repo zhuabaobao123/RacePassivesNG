@@ -52,7 +52,7 @@ cmake --build build --config Release
 
 The DLL lands in `build/Release/`. SE and AE are both enabled by default (one DLL for both); pass `-DENABLE_SKYRIM_VR=ON` if you want a VR build too.
 
-There are no Papyrus scripts to compile. If you change anything in `scripts/`, note those are leftover sources from an earlier design and are not used by the current plugin.
+There are no Papyrus scripts to compile — no `.psc`, no CK compile step, nothing to deploy under `Scripts\`.
 
 
 ## Layout
