@@ -16,6 +16,8 @@ public:
     static void __stdcall RenderRedguardPage();
     static void __stdcall RenderBosmerPage();
     static void __stdcall RenderImperialPage();
+    static void __stdcall RenderVampirePage();
+    static void __stdcall RenderWerewolfPage();
     static void __stdcall RenderOverviewPage();
     static void __stdcall RenderCustomRacesPage();
 

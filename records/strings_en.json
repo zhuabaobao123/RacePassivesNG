@@ -1,0 +1,18 @@
+{
+  "提升法力回复速度。": "Increases magicka regeneration.",
+  "提升毒素抗性。": "Increases poison resistance.",
+  "生命值低于一半时提升生命回复速度。": "Health regeneration below half health.",
+  "提升体力上限。": "Increases maximum stamina.",
+  "提升移动速度。": "Increases movement speed.",
+  "生命值低于一半时提升攻击伤害。": "Attack damage below half health.",
+  "法力再生、毒素抗性、半血生命再生。": "Magicka regeneration, poison resistance, low-health regeneration.",
+  "体力上限、移动速度、半血攻击。": "Stamina, movement speed, low-health attack.",
+  "法力再生": "Magicka Regeneration",
+  "毒素抗性": "Poison Resistance",
+  "半血生命再生": "Low-Health Regeneration",
+  "体力上限": "Max Stamina",
+  "移动速度": "Movement Speed",
+  "半血攻击": "Low-Health Attack",
+  "吸血鬼之血": "Vampire Blood",
+  "狼人之血": "Werewolf Blood"
+}

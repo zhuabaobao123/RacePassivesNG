@@ -17,10 +17,10 @@ Built and tested on Skyrim SE 1.5.97. No VR build.
 Main features
 
 Per-race intensity slider (F1 > Race Passives)
-- One slider per race, 0 to 200%
+- One slider per set - the ten races, plus Vampire and Werewolf - 0 to 200%
 - Live values listed under each slider, so you see what you are actually getting
 - Overview page showing every race at a glance, plus a "Reload config from ini" button
-- 0% switches a race off completely. Multiplicative effects cap at 100%.
+- 0% switches a set off completely. Multiplicative effects cap at 100%.
 
 The passives (numbers below are what you get at 100%)
 
@@ -70,6 +70,12 @@ Imperial
 - Better Buy / Sell Prices (multiplicative)
 - Skill Learning +10% (multiplicative)
 - Armor +50 in combat (additive)
+
+Vampire and Werewolf (human form)
+These two follow what you are rather than the race you picked, and they stack on top of your race's set.
+- Vampire: Magicka Regeneration +50%, Poison Resistance +50%, Health Regeneration +50% below half health (all additive)
+- Werewolf: Maximum Stamina +50, Movement Speed +10% (additive), Attack Damage +20% below half health (multiplicative)
+Beast Form and Vampire Lord are left alone. A vampire also keeps its race's passives now: vampirism swaps your race for the vampire version of it, which used to read as "not your race" and drop the set.
 
 Settings carry over
 - Stored in SKSE/Plugins/RacePassives.ini and re-applied on every load

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.21)
 project(
 	RacePassives
 	LANGUAGES CXX
-	VERSION 2
+	VERSION 2.1
 )
 
 set(CMAKE_CXX_STANDARD 23)

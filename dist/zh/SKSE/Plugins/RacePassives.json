@@ -9,7 +9,7 @@
   "(no custom races loaded)": "（未加载自定义种族）",
   "Reload config from ini": "从 ini 重载配置",
   "Disable all (before uninstalling)": "全部关闭（卸载前清理）",
-  "Drag a race slider to scale that race's passives (0 = off, 100 = default, 200 = double).": "拖动滑条调节该种族被动的强度（0=关闭，100=默认，200=双倍）。倍率型效果（如龙吼冷却）最高 100%，不会超过默认值。",
+  "Drag a slider to scale that set's passives (0 = off, 100 = default, 200 = double).": "拖动滑条调节该套被动的强度（0=关闭，100=默认，200=双倍）。倍率型效果（如龙吼冷却）最高 100%，不会超过默认值。",
   "Additive = flat bonus; multiplicative = a multiplier (e.g. 0.8 = -20%). Values scale with the intensity setting.": "加算=数值直接累加；乘算=以倍率相乘（如 0.8 即 -20%）。数值随强度设置变化。",
   "OFF": "关",
   "GLOB not found (enable RacePassives.esp)": "找不到 GLOB（请启用 RacePassives.esp）",
@@ -32,5 +32,9 @@
   "Bosmer": "木精灵",
   "Bosmer: bow draw speed (additive), disease resist (additive), poison resist (additive). Values scale with the intensity setting.": "木精灵：弓箭绘制速度（加算）、疾病抗性（加算）、毒素抗性（加算）。数值随强度设置变化。",
   "Imperial": "帝国人",
-  "Imperial: buy/sell prices (multiplicative), skill learning (multiplicative), combat armor (additive). Values scale with the intensity setting.": "帝国人：买卖价格（乘算）、技能学习（乘算）、战斗护甲（加算）。数值随强度设置变化。"
+  "Imperial: buy/sell prices (multiplicative), skill learning (multiplicative), combat armor (additive). Values scale with the intensity setting.": "帝国人：买卖价格（乘算）、技能学习（乘算）、战斗护甲（加算）。数值随强度设置变化。",
+  "Vampire": "吸血鬼",
+  "Vampire (human form): magicka regen (additive), poison resist (additive), health regen below half (additive). Adds to your race's passives.": "吸血鬼（人形）：法力再生（加算）、毒素抗性（加算）、半血以下生命再生（加算）。与种族被动叠加。",
+  "Werewolf": "狼人",
+  "Werewolf (human form): stamina (additive), movement speed (additive), attack damage below half (multiplicative). Adds to your race's passives.": "狼人（人形）：体力上限（加算）、移动速度（加算）、半血以下攻击（乘算）。与种族被动叠加。"
 }

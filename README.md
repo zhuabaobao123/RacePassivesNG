@@ -10,7 +10,9 @@ Nexus page: https://www.nexusmods.com/skyrimspecialedition/mods/192233
 ## What's in the plugin
 
 * 10 passives sets, one per playable race. Each set is a couple of magic effects plus, where it makes sense, a perk for conditional stuff (below half health, in combat, and so on).
-* An SKSE Menu Framework page (F1) with one slider per race. 0 turns a race off, 100 is the default, 200 doubles the additive effects.
+* Two sets that follow what the player *is* rather than the race they picked: Vampire and Werewolf. They apply in human form, come on top of the race's set (a Nord vampire gets both), and have their own sliders. Beast Form and Vampire Lord are left alone.
+* A vampire keeps its race's passives. Vampirism swaps your race for the vampire version of it (`NordRaceVampire` and friends), which the plugin used to read as "not your race" and drop the set; it now follows that variant back to the race it was made from.
+* An SKSE Menu Framework page (F1) with one slider per set. 0 turns a set off, 100 is the default, 200 doubles the additive effects.
 * Multiplicative effects (shout cooldown, attack damage, prices, skill learning) cap at 100%, because going past that inverts them.
 * Settings live in `SKSE/Plugins/RacePassives.ini` and are re-applied on every load, so they carry across saves.
 * Custom races can be mapped onto any of the ten sets via the `[CustomRaces]` section of that ini.
@@ -69,10 +71,13 @@ dist/              cover art and the store-page copy
 
 ## Configuration
 
-`SKSE/Plugins/RacePassives.ini` holds the per-race intensity and the custom-race map:
+`SKSE/Plugins/RacePassives.ini` holds the per-set intensity and the custom-race map:
 
 ```ini
 [Nord]
+Intensity=100
+
+[Vampire]
 Intensity=100
 
 [CustomRaces]

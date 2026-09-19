@@ -7,7 +7,7 @@
 
 namespace
 {
-	// section -> GLOB EditorID. Section is the English race name shown in SMF.
+	// section -> GLOB EditorID. Section is the name shown in SMF: a race, or a state (Vampire / Werewolf).
 	constexpr std::pair<const char*, const char*> kEntries[] = {
 		{ "Nord", "RPEnableNordFrost" },
 		{ "Orc", "RPEnableOrcRage" },
@@ -19,6 +19,8 @@ namespace
 		{ "Redguard", "RPEnableRedguard" },
 		{ "Bosmer", "RPEnableBosmer" },
 		{ "Imperial", "RPEnableImperial" },
+		{ "Vampire", "RPEnableVampire" },
+		{ "Werewolf", "RPEnableWerewolf" },
 	};
 
 	constexpr int kDefaultIntensity = 100;

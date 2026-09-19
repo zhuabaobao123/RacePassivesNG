@@ -1,7 +1,7 @@
 === NEXUS SHORT DESCRIPTION (<=350 chars) ===
 
 [EN] (298 chars)
-Every race gets 2-3 new passives, and a slider to decide how strong they are. Open the menu with F1, drag a race anywhere from 0 to 200%. Think Nords should shrug off more frost? Crank it. Feel something's overtuned? Turn it down or off. Only adds new records, so it won't fight your other race mods.
+Every race gets 2-3 new passives, and a slider to decide how strong they are. Open the menu with F1, drag a race anywhere from 0 to 200%. Think Nords should shrug off more frost? Crank it. Feel something's overtuned? Turn it down or off. Only adds new records, so it won't fight your other race mods. Vampires and werewolves get their own sets.
 
 [ZH]
-给每个种族加 2-3 个被动，强度用游戏内滑条自己定。F1 打开菜单，0 到 200% 随便拖。想让诺德更抗冻？拉满。觉得哪个种族太强？调低或关掉。只新增记录，不跟其他种族 mod 打架。
+给每个种族加 2-3 个被动，强度用游戏内滑条自己定。F1 打开菜单，0 到 200% 随便拖。想让诺德更抗冻？拉满。觉得哪个种族太强？调低或关掉。只新增记录，不跟其他种族 mod 打架。吸血鬼和狼人也有各自的一套。

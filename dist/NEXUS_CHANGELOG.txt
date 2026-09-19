@@ -1,5 +1,21 @@
 === CHANGELOG (English) ===
 
+2.1
+---
+Vampires and werewolves.
+
+- New: a Vampire set and a Werewolf set, for human form. They stack on top of your race's set rather than replacing it, so a Nord vampire gets the Nord passives and the vampire ones together.
+- Vampires keep their race's passives now. Becoming a vampire swaps your race for the vampire version of it (NordRaceVampire and so on), and the mod read that as "not your race" and took the set away. It now follows the vampire race back to the one it was built from - which also covers custom races that RaceCompatibility gives a vampire variant.
+- Beast Form and Vampire Lord are deliberately left alone: the new sets apply in human form only.
+- Two new sliders in the menu (F1), and [Vampire] / [Werewolf] in the ini. Both start at 100.
+- Vampire: magicka regeneration, poison resistance, and health regeneration below half health.
+- Werewolf: maximum stamina, movement speed, and attack damage below half health.
+- The shipped ini no longer carries my own [Nord] / [Orc] tuning - every set starts at 100.
+
+Under the hood:
+- Race matching resolves a race's MorphRace, so any variant that points back at a base race inherits that race's set.
+- Vampire is detected from the Vampire keyword on the race (or on the actor); werewolf from the Beast Form power still being in your spell list. Neither needs a script.
+
 2
 --
 Custom race support.
@@ -15,6 +31,22 @@ Under the hood:
 
 
 === 更新日志（中文） ===
+
+2.1
+--
+吸血鬼与狼人。
+
+- 新增「吸血鬼」与「狼人」两套被动（人形时生效）。它们是**叠加**在种族被动之上，而不是替换——诺德人变吸血鬼后，诺德被动和吸血鬼被动会同时存在。
+- 吸血鬼现在会保留种族被动。变成吸血鬼时游戏会把你的种族换成对应吸血鬼种族（NordRaceVampire 等），之前会被判定为"不是你的种族"从而收走被动；现在会顺着吸血鬼种族回溯到它的本体种族。对 RaceCompatibility 生成吸血鬼变体的自定义种族同样有效。
+- 兽形与大君形态有意不覆盖：新增的两套仅在**人形**时生效。
+- 菜单（F1）新增两条滑条，ini 新增 [Vampire] / [Werewolf] 段，默认均为 100。
+- 吸血鬼：法力再生、毒素抗性、半血以下生命再生。
+- 狼人：体力上限、移动速度、半血以下攻击伤害。
+- 发布包里的 ini 不再带我自己调过的 [Nord] / [Orc] 数值，所有套默认 100。
+
+底层：
+- 种族匹配会解析种族的 MorphRace，因此任何"指向本体种族的变体"都会继承本体那一套被动。
+- 吸血鬼用种族（或角色）上的 Vampire 关键字判定；狼人用"兽形力量仍在法术列表中"判定。两者都不需要脚本。
 
 2
 --

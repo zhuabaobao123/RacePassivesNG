@@ -87,6 +87,8 @@ void UIRenderer::Register()
 	SKSEMenuFramework::AddSectionItem(_T("Redguard"), RenderRedguardPage);
 	SKSEMenuFramework::AddSectionItem(_T("Bosmer"), RenderBosmerPage);
 	SKSEMenuFramework::AddSectionItem(_T("Imperial"), RenderImperialPage);
+	SKSEMenuFramework::AddSectionItem(_T("Vampire"), RenderVampirePage);
+	SKSEMenuFramework::AddSectionItem(_T("Werewolf"), RenderWerewolfPage);
 	SKSE::log::info("Registered SMF pages");
 }
 
@@ -102,7 +104,7 @@ void __stdcall UIRenderer::RenderOverviewPage()
 		SyncScale::DisableAll();
 	}
 	ImGui::Separator();
-	ImGui::TextWrapped("%s", _T("Drag a race slider to scale that race's passives (0 = off, 100 = default, 200 = double)."));
+	ImGui::TextWrapped("%s", _T("Drag a slider to scale that set's passives (0 = off, 100 = default, 200 = double)."));
 	ImGui::TextWrapped("%s", _T("Additive = flat bonus; multiplicative = a multiplier (e.g. 0.8 = -20%). Values scale with the intensity setting."));
 	ImGui::Spacing();
 	RenderRaceStatus("Nord", "RPEnableNordFrost");
@@ -115,6 +117,9 @@ void __stdcall UIRenderer::RenderOverviewPage()
 	RenderRaceStatus("Redguard", "RPEnableRedguard");
 	RenderRaceStatus("Bosmer", "RPEnableBosmer");
 	RenderRaceStatus("Imperial", "RPEnableImperial");
+	ImGui::Spacing();
+	RenderRaceStatus("Vampire", "RPEnableVampire");
+	RenderRaceStatus("Werewolf", "RPEnableWerewolf");
 }
 
 void __stdcall UIRenderer::RenderCustomRacesPage()
@@ -192,4 +197,14 @@ void __stdcall UIRenderer::RenderBosmerPage()
 void __stdcall UIRenderer::RenderImperialPage()
 {
 	RenderRacePage("Imperial", "RPEnableImperial", "Imperial: buy/sell prices (multiplicative), skill learning (multiplicative), combat armor (additive). Values scale with the intensity setting.");
+}
+
+void __stdcall UIRenderer::RenderVampirePage()
+{
+	RenderRacePage("Vampire", "RPEnableVampire", "Vampire (human form): magicka regen (additive), poison resist (additive), health regen below half (additive). Adds to your race's passives.");
+}
+
+void __stdcall UIRenderer::RenderWerewolfPage()
+{
+	RenderRacePage("Werewolf", "RPEnableWerewolf", "Werewolf (human form): stamina (additive), movement speed (additive), attack damage below half (multiplicative). Adds to your race's passives.");
 }

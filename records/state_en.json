@@ -1,0 +1,293 @@
+[
+  {
+    "record_type": "GlobalShort",
+    "editorid": "RPEnableVampire",
+    "ops": [
+      { "field_path": "Data", "value": "100" }
+    ]
+  },
+  {
+    "record_type": "GlobalShort",
+    "editorid": "RPEnableWerewolf",
+    "ops": [
+      { "field_path": "Data", "value": "100" }
+    ]
+  },
+  {
+    "record_type": "MagicEffect",
+    "editorid": "RPVampireNightVigorMGEF",
+    "ops": [
+      { "field_path": "Archetype", "op": "Set", "compose": { "type": "MagicEffectArchetype", "fields": { "Type": "ValueModifier" }, "sets": [ { "path": "ActorValue", "value": "MagickaRate" } ] } },
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "CastingSoundLevel", "value": "Loud" },
+      { "field_path": "Description", "value": "Increases magicka regeneration." },
+      { "field_path": "DualCastScale", "value": "0" },
+      { "field_path": "Flags", "value": "Recover, NoDuration, PowerAffectsMagnitude" },
+      { "field_path": "MagicSkill", "value": "None" },
+      { "field_path": "MinimumSkillLevel", "value": "0" },
+      { "field_path": "Name", "value": "Magicka Regeneration" },
+      { "field_path": "ResistValue", "value": "None" },
+      { "field_path": "SecondActorValue", "value": "None" },
+      { "field_path": "SecondActorValueWeight", "value": "0" },
+      { "field_path": "SkillUsageMultiplier", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" }
+    ]
+  },
+  {
+    "record_type": "MagicEffect",
+    "editorid": "RPVampireTaintedBloodMGEF",
+    "ops": [
+      { "field_path": "Archetype", "op": "Set", "compose": { "type": "MagicEffectArchetype", "fields": { "Type": "ValueModifier" }, "sets": [ { "path": "ActorValue", "value": "PoisonResist" } ] } },
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "CastingSoundLevel", "value": "Loud" },
+      { "field_path": "Description", "value": "Increases poison resistance." },
+      { "field_path": "DualCastScale", "value": "0" },
+      { "field_path": "Flags", "value": "Recover, NoDuration, PowerAffectsMagnitude" },
+      { "field_path": "MagicSkill", "value": "None" },
+      { "field_path": "MinimumSkillLevel", "value": "0" },
+      { "field_path": "Name", "value": "Poison Resistance" },
+      { "field_path": "ResistValue", "value": "None" },
+      { "field_path": "SecondActorValue", "value": "None" },
+      { "field_path": "SecondActorValueWeight", "value": "0" },
+      { "field_path": "SkillUsageMultiplier", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" }
+    ]
+  },
+  {
+    "record_type": "MagicEffect",
+    "editorid": "RPVampireBloodthirstMGEF",
+    "ops": [
+      { "field_path": "Archetype", "op": "Set", "compose": { "type": "MagicEffectArchetype", "fields": { "Type": "ValueModifier" }, "sets": [ { "path": "ActorValue", "value": "HealRate" } ] } },
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "CastingSoundLevel", "value": "Loud" },
+      { "field_path": "Description", "value": "Health regeneration below half health." },
+      { "field_path": "DualCastScale", "value": "0" },
+      { "field_path": "Flags", "value": "Recover, NoDuration, PowerAffectsMagnitude" },
+      { "field_path": "MagicSkill", "value": "None" },
+      { "field_path": "MinimumSkillLevel", "value": "0" },
+      { "field_path": "Name", "value": "Low-Health Regeneration" },
+      { "field_path": "ResistValue", "value": "None" },
+      { "field_path": "SecondActorValue", "value": "None" },
+      { "field_path": "SecondActorValueWeight", "value": "0" },
+      { "field_path": "SkillUsageMultiplier", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" },
+      {
+        "field_path": "Conditions", "op": "Add",
+        "compose": {
+          "type": "ConditionFloat",
+          "sets": [
+            { "path": "ComparisonValue", "value": "50" },
+            { "path": "CompareOperator", "value": "LessThan" },
+            { "path": "Data", "compose": { "type": "GetHealthPercentageConditionData", "sets": [ { "path": "RunOnType", "value": "Subject" } ] } }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "record_type": "MagicEffect",
+    "editorid": "RPWerewolfBeastVigorMGEF",
+    "ops": [
+      { "field_path": "Archetype", "op": "Set", "compose": { "type": "MagicEffectArchetype", "fields": { "Type": "ValueModifier" }, "sets": [ { "path": "ActorValue", "value": "Stamina" } ] } },
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "CastingSoundLevel", "value": "Loud" },
+      { "field_path": "Description", "value": "Increases maximum stamina." },
+      { "field_path": "DualCastScale", "value": "0" },
+      { "field_path": "Flags", "value": "Recover, NoDuration, PowerAffectsMagnitude" },
+      { "field_path": "MagicSkill", "value": "None" },
+      { "field_path": "MinimumSkillLevel", "value": "0" },
+      { "field_path": "Name", "value": "Max Stamina" },
+      { "field_path": "ResistValue", "value": "None" },
+      { "field_path": "SecondActorValue", "value": "None" },
+      { "field_path": "SecondActorValueWeight", "value": "0" },
+      { "field_path": "SkillUsageMultiplier", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" }
+    ]
+  },
+  {
+    "record_type": "MagicEffect",
+    "editorid": "RPWerewolfHuntersInstinctMGEF",
+    "ops": [
+      { "field_path": "Archetype", "op": "Set", "compose": { "type": "MagicEffectArchetype", "fields": { "Type": "ValueModifier" }, "sets": [ { "path": "ActorValue", "value": "SpeedMult" } ] } },
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "CastingSoundLevel", "value": "Loud" },
+      { "field_path": "Description", "value": "Increases movement speed." },
+      { "field_path": "DualCastScale", "value": "0" },
+      { "field_path": "Flags", "value": "Recover, NoDuration, PowerAffectsMagnitude" },
+      { "field_path": "MagicSkill", "value": "None" },
+      { "field_path": "MinimumSkillLevel", "value": "0" },
+      { "field_path": "Name", "value": "Movement Speed" },
+      { "field_path": "ResistValue", "value": "None" },
+      { "field_path": "SecondActorValue", "value": "None" },
+      { "field_path": "SecondActorValueWeight", "value": "0" },
+      { "field_path": "SkillUsageMultiplier", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" }
+    ]
+  },
+  {
+    "record_type": "Perk",
+    "editorid": "RPWerewolfFury",
+    "ops": [
+      { "field_path": "Description", "value": "Attack damage below half health." },
+      { "field_path": "Hidden", "value": "False" },
+      { "field_path": "Level", "value": "0" },
+      { "field_path": "Name", "value": "Low-Health Attack" },
+      { "field_path": "NumRanks", "value": "0" },
+      { "field_path": "Playable", "value": "False" },
+      { "field_path": "Trait", "value": "False" },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "PerkEntryPointModifyValue",
+          "sets": [
+            { "path": "EntryPoint", "value": "ModAttackDamage" },
+            { "path": "Modification", "value": "Multiply" },
+            { "path": "Value", "value": "1.2" },
+            { "path": "PerkConditionTabCount", "value": "3" },
+            { "path": "Rank", "value": "0" },
+            { "path": "Priority", "value": "0" },
+            {
+              "path": "Conditions", "verb": "Add",
+              "compose": {
+                "type": "PerkCondition",
+                "sets": [
+                  { "path": "RunOnTabIndex", "value": "0" },
+                  {
+                    "path": "Conditions", "verb": "Add",
+                    "compose": {
+                      "type": "ConditionFloat",
+                      "sets": [
+                        { "path": "ComparisonValue", "value": "50" },
+                        { "path": "CompareOperator", "value": "LessThan" },
+                        { "path": "Data", "compose": { "type": "GetHealthPercentageConditionData", "sets": [ { "path": "RunOnType", "value": "Subject" } ] } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "record_type": "MagicEffect",
+    "editorid": "RPWerewolfFuryMGEF",
+    "ops": [
+      { "field_path": "Archetype", "op": "Set", "compose": { "type": "MagicEffectArchetype", "fields": { "Type": "ValueModifier" }, "sets": [ { "path": "ActorValue", "value": "Health" } ] } },
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "CastingSoundLevel", "value": "Loud" },
+      { "field_path": "Description", "value": "Attack damage below half health." },
+      { "field_path": "DualCastScale", "value": "0" },
+      { "field_path": "Flags", "value": "Recover, NoDuration, HideInUI, PowerAffectsMagnitude" },
+      { "field_path": "MagicSkill", "value": "None" },
+      { "field_path": "MinimumSkillLevel", "value": "0" },
+      { "field_path": "Name", "value": "Low-Health Attack" },
+      { "field_path": "PerkToApply", "value": "@RPWerewolfFury" },
+      { "field_path": "ResistValue", "value": "None" },
+      { "field_path": "SecondActorValue", "value": "None" },
+      { "field_path": "SecondActorValueWeight", "value": "0" },
+      { "field_path": "SkillUsageMultiplier", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" }
+    ]
+  },
+  {
+    "record_type": "Spell",
+    "editorid": "RPVampireBlood",
+    "ops": [
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastDuration", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "ChargeTime", "value": "0" },
+      { "field_path": "Description", "value": "Magicka regeneration, poison resistance, low-health regeneration." },
+      { "field_path": "Flags", "value": "0" },
+      { "field_path": "Name", "value": "Vampire Blood" },
+      { "field_path": "Range", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" },
+      { "field_path": "Type", "value": "Ability" },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "Effect",
+          "sets": [
+            { "path": "BaseEffect", "value": "@RPVampireNightVigorMGEF" },
+            { "path": "Data", "compose": { "type": "EffectData", "sets": [ { "path": "Magnitude", "value": "50" }, { "path": "Area", "value": "0" }, { "path": "Duration", "value": "0" } ] } }
+          ]
+        }
+      },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "Effect",
+          "sets": [
+            { "path": "BaseEffect", "value": "@RPVampireTaintedBloodMGEF" },
+            { "path": "Data", "compose": { "type": "EffectData", "sets": [ { "path": "Magnitude", "value": "50" }, { "path": "Area", "value": "0" }, { "path": "Duration", "value": "0" } ] } }
+          ]
+        }
+      },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "Effect",
+          "sets": [
+            { "path": "BaseEffect", "value": "@RPVampireBloodthirstMGEF" },
+            { "path": "Data", "compose": { "type": "EffectData", "sets": [ { "path": "Magnitude", "value": "50" }, { "path": "Area", "value": "0" }, { "path": "Duration", "value": "0" } ] } }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "record_type": "Spell",
+    "editorid": "RPWerewolfBlood",
+    "ops": [
+      { "field_path": "BaseCost", "value": "0" },
+      { "field_path": "CastDuration", "value": "0" },
+      { "field_path": "CastType", "value": "ConstantEffect" },
+      { "field_path": "ChargeTime", "value": "0" },
+      { "field_path": "Description", "value": "Stamina, movement speed, low-health attack." },
+      { "field_path": "Flags", "value": "0" },
+      { "field_path": "Name", "value": "Werewolf Blood" },
+      { "field_path": "Range", "value": "0" },
+      { "field_path": "TargetType", "value": "Self" },
+      { "field_path": "Type", "value": "Ability" },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "Effect",
+          "sets": [
+            { "path": "BaseEffect", "value": "@RPWerewolfBeastVigorMGEF" },
+            { "path": "Data", "compose": { "type": "EffectData", "sets": [ { "path": "Magnitude", "value": "50" }, { "path": "Area", "value": "0" }, { "path": "Duration", "value": "0" } ] } }
+          ]
+        }
+      },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "Effect",
+          "sets": [
+            { "path": "BaseEffect", "value": "@RPWerewolfHuntersInstinctMGEF" },
+            { "path": "Data", "compose": { "type": "EffectData", "sets": [ { "path": "Magnitude", "value": "10" }, { "path": "Area", "value": "0" }, { "path": "Duration", "value": "0" } ] } }
+          ]
+        }
+      },
+      {
+        "field_path": "Effects", "op": "Add",
+        "compose": {
+          "type": "Effect",
+          "sets": [
+            { "path": "BaseEffect", "value": "@RPWerewolfFuryMGEF" },
+            { "path": "Data", "compose": { "type": "EffectData", "sets": [ { "path": "Magnitude", "value": "1" }, { "path": "Area", "value": "0" }, { "path": "Duration", "value": "0" } ] } }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -14,6 +14,18 @@ namespace
 	using Func = RE::BGSEntryPointFunction::ENTRY_POINT_FUNCTION;
 	using FuncData = RE::BGSEntryPointFunctionData::ENTRY_POINT_FUNCTION_DATA;
 
+	// How an entry decides whether it applies to the player.
+	//   kRace    - the player's race, or the race its MorphRace points back at (a vampire variant),
+	//              or a race mapped in [CustomRaces].
+	//   kVampire - the player is a vampire (the Vampire keyword), in human form.
+	//   kWerewolf- the player can turn into a werewolf (has the Beast Form power), in human form.
+	enum class Match
+	{
+		kRace,
+		kVampire,
+		kWerewolf,
+	};
+
 	struct Entry
 	{
 		const char*              name;
@@ -21,6 +33,8 @@ namespace
 		std::uint32_t            raceFormID;
 		const char*              spellEDID;
 		std::vector<const char*> perkEDIDs;
+		Match                    match = Match::kRace;
+		const char*              excludeRaceEDID = nullptr;
 	};
 
 	const std::vector<Entry>& Table()
@@ -36,6 +50,27 @@ namespace
 			{ "Redguard", "RPEnableRedguard", 0x013748, "RPRedguardVigor", {} },
 			{ "Bosmer", "RPEnableBosmer", 0x013749, "RPBosmerHunter", {} },
 			{ "Imperial", "RPEnableImperial", 0x013744, "RPImperialVirtue", { "RPImperialPrices", "RPImperialLearning", "RPImperialDiscipline" } },
+		};
+		return t;
+	}
+
+	// Skyrim.esm FormIDs (Skyrim.esm is always load index 0, so the runtime ID is the local one).
+	constexpr std::uint32_t kVampireKeyword   = 0x000A82BB;  // KYWD "Vampire"
+	constexpr std::uint32_t kWerewolfChange   = 0x00092C48;  // SPEL "WerewolfChange" (LesserPower - the Beast Form power)
+	constexpr std::uint32_t kWerewolfImmunity = 0x000F5BA0;  // SPEL "WerewolfImmunity" (Ability - lycanthropy disease immunity)
+
+	// A form the player takes, not a race: the state passives are for the human form only.
+	// By editor ID because one of them lives in Dawnguard.esm, whose load index is not fixed.
+	constexpr const char* kWerewolfBeastRaceEDID = "WerewolfBeastRace";
+	constexpr const char* kVampireLordRaceEDID   = "DLC1VampireBeastRace";
+
+	// Passives that come from what the player *is* rather than which race they picked, so they add
+	// to a race's set instead of replacing it.
+	const std::vector<Entry>& StateTable()
+	{
+		static const std::vector<Entry> t = {
+			{ "Vampire", "RPEnableVampire", 0, "RPVampireBlood", {}, Match::kVampire, kVampireLordRaceEDID },
+			{ "Werewolf", "RPEnableWerewolf", 0, "RPWerewolfBlood", { "RPWerewolfFury" }, Match::kWerewolf, kWerewolfBeastRaceEDID },
 		};
 		return t;
 	}
@@ -62,6 +97,82 @@ namespace
 			return false;
 		}
 		return std::find(it->second.begin(), it->second.end(), a_race) != it->second.end();
+	}
+
+	// A vampire race (NordRaceVampire, and every mod's variant of it) points back at the race it
+	// was made from through MorphRace. That is what lets a vampire keep its race's passives.
+	RE::TESRace* EffectiveRace(RE::TESRace* a_race)
+	{
+		if (a_race && a_race->morphRace && a_race->morphRace != a_race) {
+			return a_race->morphRace;
+		}
+		return a_race;
+	}
+
+	bool RaceMatches(const Entry& a_entry, RE::TESRace* a_race)
+	{
+		if (!a_race) {
+			return false;
+		}
+		auto* effective = EffectiveRace(a_race);
+		return effective->formID == a_entry.raceFormID ||
+		       IsCustomRaceOf(effective->formID, a_entry.name) ||
+		       IsCustomRaceOf(a_race->formID, a_entry.name);
+	}
+
+	// True while the player wears a form (Vampire Lord, Beast Form) rather than a race.
+	bool InExcludedRace(RE::TESRace* a_race, const char* a_excludeEDID)
+	{
+		if (!a_race || !a_excludeEDID) {
+			return false;
+		}
+		auto* form = RE::TESForm::LookupByEditorID(a_excludeEDID);
+		auto* race = form ? form->As<RE::TESRace>() : nullptr;
+		return race && race->formID == a_race->formID;
+	}
+
+	bool StateMatches(const Entry& a_entry, RE::PlayerCharacter* a_player, RE::TESRace* a_race)
+	{
+		if (InExcludedRace(a_race, a_entry.excludeRaceEDID)) {
+			return false;
+		}
+		switch (a_entry.match) {
+		case Match::kVampire:
+			{
+				auto* keyword = RE::TESForm::LookupByID<RE::BGSKeyword>(kVampireKeyword);
+				if (!keyword) {
+					return false;
+				}
+				// The keyword sits on the vampire race; some setups put it on the actor too.
+				return (a_race && a_race->HasKeyword(keyword)) || a_player->HasKeyword(keyword);
+			}
+		case Match::kWerewolf:
+			{
+				// The Beast Form power stays in the spell list in human form. The immunity
+				// ability is a second marker, for setups that hand out something else.
+				for (auto formID : { kWerewolfChange, kWerewolfImmunity }) {
+					auto* spell = RE::TESForm::LookupByID<RE::SpellItem>(formID);
+					if (spell && a_player->HasSpell(spell)) {
+						return true;
+					}
+				}
+				return false;
+			}
+		default:
+			return false;
+		}
+	}
+
+	bool EntryMatches(const Entry& a_entry, RE::PlayerCharacter* a_player)
+	{
+		if (!a_player) {
+			return false;
+		}
+		auto* race = a_player->GetRace();
+		if (a_entry.match == Match::kRace) {
+			return RaceMatches(a_entry, race);
+		}
+		return StateMatches(a_entry, a_player, race);
 	}
 
 	constexpr int kDefaultIntensity = 100;
@@ -210,9 +321,7 @@ namespace
 			return;
 		}
 		bool hasIt = player->HasSpell(a_spell);
-		auto* race = player->GetRace();
-		bool wantIt = (a_intensity > 0) && race &&
-		              (race->formID == a_entry.raceFormID || IsCustomRaceOf(race->formID, a_entry.name));
+		bool wantIt = (a_intensity > 0) && EntryMatches(a_entry, player);
 		if (a_refresh && hasIt) {
 			player->RemoveSpell(a_spell);
 			hasIt = false;
@@ -255,6 +364,10 @@ namespace
 		for (const auto& entry : Table()) {
 			ApplyEntry(entry);
 		}
+		// State sets add to whatever the race set did; they never replace it.
+		for (const auto& entry : StateTable()) {
+			ApplyEntry(entry);
+		}
 	}
 }
 
@@ -271,7 +384,13 @@ namespace SyncScale
 				CapturePerkBaseline(perkEDID);
 			}
 		}
-		SKSE::log::info("Captured baselines for {} races", Table().size());
+		for (const auto& entry : StateTable()) {
+			CaptureSpellBaseline(entry);
+			for (auto* perkEDID : entry.perkEDIDs) {
+				CapturePerkBaseline(perkEDID);
+			}
+		}
+		SKSE::log::info("Captured baselines for {} races and {} states", Table().size(), StateTable().size());
 	}
 
 	void ReloadCustomRaces()
@@ -342,8 +461,11 @@ namespace SyncScale
 
 	void DisableAll()
 	{
-		// 1) persist 0 for every race in the ini
+		// 1) persist 0 for every set in the ini
 		for (const auto& entry : Table()) {
+			Config::Save(entry.globEDID, 0);
+		}
+		for (const auto& entry : StateTable()) {
 			Config::Save(entry.globEDID, 0);
 		}
 		// 2) zero every GLOB and re-run the sync (removes spells + perks from the player)
@@ -358,8 +480,14 @@ namespace SyncScale
 					glob->value = 0.0f;
 				}
 			}
+			for (const auto& entry : StateTable()) {
+				auto* form = RE::TESForm::LookupByEditorID(entry.globEDID);
+				if (auto* glob = form ? form->As<RE::TESGlobal>() : nullptr) {
+					glob->value = 0.0f;
+				}
+			}
 			ApplyAllInternal();
-			SKSE::log::info("DisableAll: every race set to 0, spells removed");
+			SKSE::log::info("DisableAll: every set to 0, spells removed");
 		});
 	}
 
@@ -371,6 +499,14 @@ namespace SyncScale
 			if (std::string(e.name) == a_raceName) {
 				entry = &e;
 				break;
+			}
+		}
+		if (!entry) {
+			for (const auto& e : StateTable()) {
+				if (std::string(e.name) == a_raceName) {
+					entry = &e;
+					break;
+				}
 			}
 		}
 		if (!entry) {
