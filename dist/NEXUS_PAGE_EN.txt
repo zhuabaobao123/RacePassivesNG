@@ -108,6 +108,14 @@ The mod puts abilities on your character, so clean up first:
 If you skip that, the save usually still loads, but it keeps references to records that no longer exist. ReSaver can clean those out.
 
 
+Source and licence
+GPL-3.0-or-later - Copyright (C) 2026 zhuabaobao123. The mod is GPL because it links CommonLibSSE-NG (GPL-3.0-or-later).
+- Source code: https://github.com/zhuabaobao123/RacePassivesNG
+- Full licence text: LICENSE.txt in the download, or https://www.gnu.org/licenses/gpl-3.0.txt
+- Distributed WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+- Nexus permissions are set to allow modification and redistribution, matching the GPL.
+
+
 Shout outs
 
 - Built with CommonLibSSE-NG

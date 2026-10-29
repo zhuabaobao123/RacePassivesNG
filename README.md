@@ -6,6 +6,8 @@ Every playable race gets 2-3 passive abilities, and each race has an intensity s
 
 Nexus page: https://www.nexusmods.com/skyrimspecialedition/mods/192233
 
+Source code: https://github.com/zhuabaobao123/RacePassivesNG
+
 
 ## What's in the plugin
 
@@ -62,7 +64,7 @@ There are no Papyrus scripts to compile — no `.psc`, no CK compile step, nothi
 ```
 include/           headers (PCH, Config, Localization, SyncScale, UI)
 src/               sources (main, Config, Localization, SyncScale, UI)
-include/SKSE-MCP/  vendored SKSE Menu Framework header (LGPL)
+include/SKSE-MCP/  vendored SKSE Menu Framework header (see its mod page for terms)
 dist/en/           English ESP
 dist/zh/           Chinese ESP + menu JSON
 dist/              cover art and the store-page copy
@@ -85,6 +87,15 @@ MyCustomNord=Nord
 ```
 
 Edit it by hand and hit "Reload config from ini" in the menu, or just drag the sliders. The plugin rewrites the file when a slider moves, and it keeps your `[CustomRaces]` entries when it does.
+
+
+## Licence
+
+GPL-3.0-or-later. Copyright (C) 2026 zhuabaobao123.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+The full text is in `LICENSE.txt`. The mod is GPL because it links [CommonLibSSE-NG](https://github.com/alandtse/CommonLibSSE-NG), which is GPL-3.0-or-later; its additional permissions are reproduced in `EXCEPTIONS.md`.
 
 
 ## Credits

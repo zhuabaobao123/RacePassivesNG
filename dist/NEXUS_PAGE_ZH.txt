@@ -108,6 +108,14 @@ Installation instructions
 若跳过这一步，通常也能读档，但存档会残留指向已不存在记录的引用。可用 ReSaver 清理。
 
 
+源码与许可
+GPL-3.0-or-later —— 版权所有 (C) 2026 zhuabaobao123。本 mod 采用 GPL，因为它链接了 CommonLibSSE-NG（GPL-3.0-or-later）。
+- 源码：https://github.com/zhuabaobao123/RacePassivesNG
+- 完整许可文本：下载包内的 LICENSE.txt，或 https://www.gnu.org/licenses/gpl-3.0.txt
+- 不提供任何担保，包括但不限于适销性与特定用途适用性的担保。
+- Nexus 权限已设为允许修改与再发布，与 GPL 一致。
+
+
 Shout outs
 
 - 基于 CommonLibSSE-NG 构建
