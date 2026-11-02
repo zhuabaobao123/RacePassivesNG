@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
 	<moduleName>Race Passives</moduleName>
 	<requiredInstallFiles>
 		<file source="main/SKSE/Plugins/RacePassives.dll" destination="SKSE/Plugins/RacePassives.dll" />
