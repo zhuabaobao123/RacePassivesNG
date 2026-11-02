@@ -1,14 +1,16 @@
 === CHANGELOG (English) ===
 
-2.1
+2.3
 ---
-Vampires and werewolves.
+Vampires and werewolves, plus two fixes.
 
 - New Vampire and Werewolf passive sets (human form only), on top of your race's set - a Nord vampire gets both.
 - Vampires now keep their race's passives. Turning into a vampire swaps your race for its vampire variant, which used to drop the set; it now follows that variant back to your race.
 - Two new sliders in the menu (F1): [Vampire] and [Werewolf].
 - Vampire: magicka regen, poison resistance, low-health regen.
 - Werewolf: stamina, movement speed, attack damage below half.
+- Fixed: the installer refused the archive ("Invalid XML ... Line 9, Pos 3"). The FOMOD config declared an old schema version; it now declares 5.0.
+- Licensed GPL-3.0-or-later - full text in the download, source at https://github.com/zhuabaobao123/RacePassivesNG
 - The shipped ini no longer carries my own tuning - every set starts at 100.
 
 2
@@ -27,15 +29,17 @@ Under the hood:
 
 === 更新日志（中文） ===
 
-2.1
+2.3
 --
-吸血鬼与狼人。
+吸血鬼与狼人，外加两处修复。
 
 - 新增「吸血鬼」「狼人」两套被动（仅人形），叠加在种族被动之上——诺德人变吸血鬼后两套同时生效。
 - 吸血鬼现在保留种族被动。吸血鬼化会替换你的种族（NordRaceVampire 等），以前会被当作"不是你的种族"而收走；现在会回溯到本体种族。
 - 菜单（F1）新增两条滑条：[Vampire] 与 [Werewolf]。
 - 吸血鬼：法力再生、毒素抗性、半血生命再生。
 - 狼人：体力上限、移动速度、半血攻击。
+- 修复：安装器会拒绝压缩包（报 "Invalid XML ... Line 9, Pos 3"）。FOMOD 配置里声明的是旧版 schema，现已改为 5.0。
+- 本 mod 现以 GPL-3.0-or-later 授权，完整许可文本在下载包内，源码见 https://github.com/zhuabaobao123/RacePassivesNG
 - 发布包 ini 不再带我自己调的数值，所有套默认 100。
 
 2

@@ -1,4 +1,4 @@
-Race Passives (RacePassivesNG) 2.1
+Race Passives (RacePassivesNG) 2.3
 Copyright (C) 2026 zhuabaobao123
 
 This program is free software: you can redistribute it and/or modify it under
