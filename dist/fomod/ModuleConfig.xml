@@ -34,5 +34,22 @@
 				</group>
 			</optionalFileGroups>
 		</installStep>
+		<installStep name="Optional">
+			<optionalFileGroups>
+				<group name="NPC passives" type="SelectAny">
+					<plugins>
+						<plugin name="Give NPCs their race's passives (needs SPID)">
+							<description>Distributes the same passive spells to NPCs by race, through Spell Perk Item Distributor. Off by default. Strength follows your in-game slider.</description>
+							<files>
+								<file source="optional/RacePassives_DISTR.ini" destination="RacePassives_DISTR.ini" />
+							</files>
+							<typeDescriptor>
+								<type name="Optional" />
+							</typeDescriptor>
+						</plugin>
+					</plugins>
+				</group>
+			</optionalFileGroups>
+		</installStep>
 	</installSteps>
 </config>

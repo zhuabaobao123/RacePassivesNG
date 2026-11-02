@@ -94,6 +94,12 @@ Custom races
 - Hit "Reload config from ini" on the Overview page. That race now uses the Nord set and its slider.
 
 
+Optional: NPCs too
+The installer offers an optional SPID file, "Give NPCs their race's passives", which gives every NPC its race's set as well. Off unless you tick it; it needs Spell Perk Item Distributor (SPID).
+- Strength follows your sliders, because the spell records are shared - set a race to 0% and its NPCs get nothing either
+- It writes nothing into the save, and SPID never touches the player, so adding or removing the file is clean
+
+
 Installation instructions
 
 1. Install with your mod manager. The installer asks whether you want English or Chinese text.

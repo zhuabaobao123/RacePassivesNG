@@ -19,6 +19,7 @@ Source code: https://github.com/zhuabaobao123/RacePassivesNG
 * Settings live in `SKSE/Plugins/RacePassives.ini` and are re-applied on every load, so they carry across saves.
 * Custom races can be mapped onto any of the ten sets via the `[CustomRaces]` section of that ini.
 * Localisation: the menu strings come from a JSON next to the DLL (`RacePassives.json`); drop in a translated one, or delete it and you get the built-in English.
+* Optional and off by default: a `_DISTR.ini` that gives NPCs their race's set too, through SPID. Strength follows your sliders (the spell records are shared), and it writes nothing into the save.
 
 The plugin scales things at runtime by writing the effect magnitudes and perk values from a baseline it captures on load. The ESP is only data - no scripts, no quest, no SEQ.
 
